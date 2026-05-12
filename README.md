@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BAML vs Pydantic: Structured Output Parsing Demo
 
-## Getting Started
+Interactive web demo comparing BAML's Schema-Aligned Parser (SAP) against naive Pydantic-style JSON.parse validation. Both pipelines send the same prompt to the same LLM (Gemini 2.0 Flash via OpenRouter), then parse the response using different strategies. BAML's SAP recovers from malformed outputs (markdown fences, prose wrapping, schema echo); the Pydantic baseline does not.
 
-First, run the development server:
+Live: [baml.helloviks.com](https://baml.helloviks.com)
+
+Eval repo: [github.com/thisisvk45/baml-diligence-eval](https://github.com/thisisvk45/baml-diligence-eval)
+
+## Local Development
+
+```bash
+git clone https://github.com/thisisvk45/baml-demo.git
+cd baml-demo
+npm install
+```
+
+Copy the env file and add your OpenRouter API key:
+
+```bash
+cp .env.example .env.local
+# Edit .env.local and set OPENROUTER_API_KEY
+```
+
+Start the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. You provide a job description and resume bullets (or leave them empty to trigger the failing case).
+2. The app sends both inputs to Gemini 2.0 Flash via OpenRouter, using two prompt variants.
+3. The BAML pipeline parses the response with a resilient SAP that strips fences, extracts JSON from prose, and recovers from `$defs`/`properties` wrapping.
+4. The Pydantic pipeline uses strict `JSON.parse` with root-level key validation. No recovery.
+5. Results are displayed side by side with parse status and raw/parsed output.
 
-## Learn More
+## Deploy (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+1. Push to GitHub.
+2. Import the repo at [vercel.com/new](https://vercel.com/new).
+3. Set `OPENROUTER_API_KEY` in Environment Variables.
+4. Deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For custom domain setup, add a CNAME record pointing your subdomain to `cname.vercel-dns.com`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
