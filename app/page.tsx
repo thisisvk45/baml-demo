@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ResultColumn } from "@/components/ResultColumn";
-import { PRESETS } from "@/lib/presets";
+import { PRESETS, DEFAULT_RESUME } from "@/lib/presets";
 
 interface PipelineResult {
   raw: string;
@@ -20,7 +20,7 @@ interface CompareResponse {
 
 export default function Home() {
   const [jd, setJd] = useState("");
-  const [bullets, setBullets] = useState("");
+  const [bullets, setBullets] = useState(DEFAULT_RESUME);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CompareResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -148,7 +148,20 @@ export default function Home() {
                 <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                Resume Bullets
+                Resume
+                {bullets === DEFAULT_RESUME && (
+                  <span className="relative group/tip ml-1">
+                    <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide cursor-default">
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      Default
+                    </span>
+                    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-[11px] leading-snug rounded-lg px-3 py-2 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none text-center shadow-lg z-20">
+                      Using Vikas Kumar&apos;s resume by default. You can replace it with any text.
+                    </span>
+                  </span>
+                )}
               </label>
               <Textarea
                 placeholder="Paste resume bullet points here, or select a preset above..."

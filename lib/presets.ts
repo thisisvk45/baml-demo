@@ -4,7 +4,7 @@ export interface Preset {
   bullets: string;
 }
 
-const VIKAS_RESUME = `Vikas Kumar
+export const DEFAULT_RESUME = `Vikas Kumar
 +1 336-577-7770 | Kumav25@wfu.edu | https://helloviks.com | github.com/thisisvk45
 
 Education
@@ -49,69 +49,154 @@ SViam.ai | Next.js, Supabase, OpenRouter, Deepgram, ElevenLabs, Monaco Dec 2025 
 
 export const PRESETS: Preset[] = [
   {
-    label: "AI Engineer (use Vikas's resume)",
-    jd: `AI Engineer - Series B Startup
-
-We are building intelligent automation for enterprise workflows. Looking for an AI engineer who can own the full stack from model integration to production deployment.
-
-Requirements:
-- 2+ years building LLM-powered applications in production
-- Experience with RAG pipelines, vector databases, and retrieval systems
-- Proficiency in Python and TypeScript
-- Hands-on experience with LangChain, LlamaIndex, or similar frameworks
-- Experience with prompt engineering and evaluation frameworks
-- Familiarity with cloud infrastructure (AWS, GCP, or Azure)
-- Experience with knowledge graphs or structured data extraction is a plus
-- Strong software engineering practices (testing, CI/CD, code review)`,
-    bullets: VIKAS_RESUME,
-  },
-  {
     label: "Senior Backend Engineer (Fintech)",
-    jd: `Senior Backend Engineer - Fintech Startup
+    jd: `Senior Backend Engineer
+FinScale Technologies | New York, NY (Hybrid)
 
-We are building the next generation of payment infrastructure. You will design and operate critical backend services that move money.
+About Us
+FinScale is a Series B fintech company building real-time payment infrastructure for banks and neobanks. Our platform processes over $2B in monthly transaction volume across 12 countries. We are a team of 45 engineers and growing.
 
-Requirements:
-- 5+ years of experience with Python or Go in production
-- Deep experience with distributed systems and microservices architecture
-- Strong understanding of SQL (PostgreSQL preferred) and NoSQL databases
-- Hands-on experience with AWS or GCP in production environments
-- Familiarity with event-driven architectures (Kafka, RabbitMQ, or similar)
-- Knowledge of financial regulations (SOX, PCI-DSS) is a strong plus
-- Experience with CI/CD pipelines and infrastructure-as-code`,
-    bullets: VIKAS_RESUME,
+The Role
+We are looking for a Senior Backend Engineer to join our Core Payments team. You will own the design, implementation, and reliability of the services that move money between financial institutions. This is a high-impact role where your code directly affects transaction throughput, latency, and regulatory compliance.
+
+What You Will Do
+- Design and build high-throughput payment processing services handling tens of thousands of transactions per second
+- Own the data layer for our transaction ledger, including schema design, query optimization, and replication strategy
+- Collaborate with the platform team on our migration from a monolithic architecture to event-driven microservices
+- Work with compliance and security teams to maintain PCI-DSS and SOX compliance across all services
+- Participate in on-call rotations and drive incident response and post-mortems
+- Mentor junior engineers and contribute to architectural decision records
+
+What We Expect
+- 5+ years of production backend experience in Python or Go
+- Deep understanding of distributed systems, consensus protocols, and eventual consistency patterns
+- Strong SQL skills, preferably with PostgreSQL at scale (billions of rows, partitioning, read replicas)
+- Experience with event-driven architectures using Kafka, RabbitMQ, or similar message brokers
+- Hands-on AWS or GCP experience (ECS/EKS, RDS, S3, Lambda)
+- Familiarity with infrastructure-as-code (Terraform or Pulumi)
+
+Nice to Have
+- Experience in fintech or payments specifically
+- Knowledge of financial regulations (PCI-DSS, SOX, AML/KYC)
+- Contributions to open-source infrastructure projects
+- Experience with chaos engineering or formal verification
+
+Compensation
+$180K-$220K base + equity + benefits. Relocation assistance available.`,
+    bullets: DEFAULT_RESUME,
   },
   {
     label: "ML Engineer (NLP/LLMs)",
-    jd: `Machine Learning Engineer - NLP/LLM Team
+    jd: `Machine Learning Engineer, NLP/LLM Systems
+Meridian AI | San Francisco, CA (Remote OK)
 
-Join our applied AI team to build and deploy large language model systems for enterprise customers.
+About Us
+Meridian AI builds enterprise search and knowledge management products powered by large language models. Our customers include Fortune 500 companies in legal, healthcare, and financial services. We raised a $40M Series A and are scaling our applied AI team.
 
-Requirements:
-- 3+ years of ML engineering experience, with focus on NLP
-- Strong proficiency in Python and PyTorch or TensorFlow
-- Experience fine-tuning and deploying LLMs (GPT, LLaMA, Mistral, or similar)
-- Familiarity with RAG architectures and vector databases
-- Experience with ML infrastructure: model serving, monitoring, A/B testing
-- Strong software engineering fundamentals (version control, testing, code review)
-- Published research or open-source contributions in NLP is a plus`,
-    bullets: VIKAS_RESUME,
+The Role
+We need an ML Engineer to own the model layer of our product: fine-tuning, evaluation, deployment, and monitoring of LLMs that power semantic search, document summarization, and question answering for enterprise customers. You will work at the intersection of research and production.
+
+What You Will Do
+- Fine-tune and evaluate large language models (LLaMA, Mistral, GPT-4) for domain-specific NLP tasks
+- Build and maintain RAG pipelines including embedding generation, vector store management, and retrieval optimization
+- Design evaluation frameworks that measure output quality, hallucination rates, and latency at scale
+- Deploy models to production using containerized serving infrastructure with auto-scaling and A/B testing
+- Collaborate with product and customer success to translate domain requirements into model improvements
+- Stay current with the research landscape and prototype new approaches
+
+What We Expect
+- 3+ years of ML engineering experience with a focus on NLP
+- Strong proficiency in Python and at least one deep learning framework (PyTorch preferred)
+- Experience fine-tuning and deploying LLMs in production environments
+- Working knowledge of RAG architectures, vector databases (Pinecone, Weaviate, Qdrant), and embedding models
+- Experience with ML infrastructure: model serving (vLLM, TGI, SageMaker), experiment tracking, monitoring
+- Solid software engineering fundamentals (Git, testing, CI/CD, code review)
+
+Nice to Have
+- Published research or open-source contributions in NLP
+- Experience with RLHF, DPO, or other alignment techniques
+- Familiarity with healthcare, legal, or financial domain data
+- Experience building evaluation pipelines for generative models
+
+Compensation
+$170K-$210K base + equity. Full remote with quarterly team offsites.`,
+    bullets: DEFAULT_RESUME,
+  },
+  {
+    label: "Product Manager (B2B SaaS)",
+    jd: `Senior Product Manager, Platform
+Arclight Software | Austin, TX (Hybrid)
+
+About Us
+Arclight builds workflow automation software for mid-market and enterprise operations teams. Our platform serves 400+ companies across manufacturing, logistics, and professional services. We are profitable, growing 60% YoY, and expanding our product team.
+
+The Role
+We are hiring a Senior Product Manager to own our core platform experience. You will define what we build, why we build it, and how we measure success. This role requires someone who can go deep with customers, think in systems, and communicate clearly across engineering, design, sales, and leadership.
+
+What You Will Do
+- Own the product roadmap for the core platform, balancing customer requests, strategic bets, and technical debt
+- Run continuous discovery: customer interviews, usage analytics, competitive analysis, and sales feedback loops
+- Write clear PRDs and collaborate with engineering and design through the full build cycle
+- Define and track product KPIs tied to business outcomes (activation, retention, expansion revenue)
+- Partner with sales and customer success on enterprise deal support and feature scoping
+- Present product strategy and results to the executive team and board
+
+What We Expect
+- 5+ years of product management experience in B2B SaaS
+- Demonstrated track record of shipping products that drove measurable revenue or retention impact
+- Experience with data-driven decision making, A/B testing, and product analytics tools (Amplitude, Mixpanel, or similar)
+- Strong technical fluency: you can read API docs, discuss architecture tradeoffs, and estimate scope with engineers
+- Experience navigating enterprise sales cycles with 3-6 month close timelines
+- Excellent written communication: you write specs, memos, and updates that people actually read
+
+Nice to Have
+- Experience in operations, logistics, or manufacturing verticals
+- MBA or equivalent business training
+- Background in engineering or data science before moving to product
+- Experience with platform/API products
+
+Compensation
+$160K-$195K base + equity + performance bonus.`,
+    bullets: DEFAULT_RESUME,
   },
   {
     label: "DevOps / Platform Engineer",
-    jd: `Senior DevOps Engineer - Platform Team
+    jd: `Senior DevOps Engineer, Platform Infrastructure
+Cloudbridge Systems | Seattle, WA (Remote OK)
 
-Build and maintain the infrastructure and developer tools that power our engineering organization.
+About Us
+Cloudbridge provides managed Kubernetes and developer tooling for mid-sized engineering teams. Our platform runs 2,000+ production clusters for 150 customers. We are a 30-person team that punches above our weight on reliability and developer experience.
 
-Requirements:
-- 4+ years of experience in DevOps, SRE, or platform engineering
-- Expert-level Kubernetes knowledge (EKS, GKE, or self-managed)
-- Strong experience with infrastructure-as-code (Terraform, Pulumi, or CloudFormation)
-- Proficiency in at least one scripting language (Python, Bash, or Go)
-- Experience with observability stack (Prometheus, Grafana, Datadog, or similar)
-- Familiarity with GitOps workflows (ArgoCD, Flux)
-- On-call experience and incident management background`,
-    bullets: VIKAS_RESUME,
+The Role
+We are hiring a Senior DevOps Engineer to join our platform infrastructure team. You will build and maintain the systems that our customers and our own engineering team depend on every day: CI/CD pipelines, observability, deployment automation, and cluster management tooling.
+
+What You Will Do
+- Manage and improve multi-tenant Kubernetes clusters (EKS) serving hundreds of microservices
+- Build and maintain Terraform modules and Helm charts for standardized service deployment
+- Design and operate the observability stack: metrics, logging, tracing, and alerting
+- Implement and maintain GitOps workflows using ArgoCD or Flux
+- Automate incident response and build self-healing infrastructure patterns
+- Participate in on-call rotation and lead incident post-mortems
+- Collaborate with product engineering to improve developer experience and deployment velocity
+
+What We Expect
+- 4+ years in DevOps, SRE, or platform engineering roles
+- Expert-level Kubernetes knowledge (EKS, GKE, or self-managed clusters)
+- Strong experience with infrastructure-as-code (Terraform required, Pulumi or CDK a plus)
+- Proficiency in at least one scripting/systems language (Python, Go, or Bash)
+- Hands-on experience with observability tools (Prometheus, Grafana, Datadog, or similar)
+- Familiarity with GitOps patterns and tools (ArgoCD, Flux, or equivalent)
+- On-call experience and comfort with incident management processes
+
+Nice to Have
+- Experience operating multi-tenant SaaS infrastructure
+- Contributions to CNCF or other open-source infrastructure projects
+- Experience with service mesh (Istio, Linkerd) or eBPF-based tooling
+- Background in chaos engineering or reliability testing
+
+Compensation
+$165K-$200K base + equity. Fully remote with optional Seattle office access.`,
+    bullets: DEFAULT_RESUME,
   },
   {
     label: "Empty inputs (schema-echo bug)",
