@@ -20,7 +20,7 @@ interface CompareResponse {
 
 export default function Home() {
   const [jd, setJd] = useState("");
-  const [bullets, setBullets] = useState(DEFAULT_RESUME);
+  const [bullets, setBullets] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CompareResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -144,25 +144,34 @@ export default function Home() {
               />
             </div>
             <div className="p-5">
-              <label className="flex items-center gap-2 text-sm font-medium text-slate-700 mb-3">
-                <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                Resume
-                {bullets === DEFAULT_RESUME && (
-                  <span className="relative group/tip ml-1">
-                    <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide cursor-default">
+              <div className="flex items-center justify-between mb-3">
+                <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
+                  <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  Resume
+                </label>
+                {bullets === DEFAULT_RESUME ? (
+                  <span className="relative group/tip">
+                    <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide cursor-default">
                       <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      Default
+                      Vikas&apos;s Resume
                     </span>
-                    <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-slate-900 text-white text-[11px] leading-snug rounded-lg px-3 py-2 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none text-center shadow-lg z-20">
-                      Using Vikas Kumar&apos;s resume by default. You can replace it with any text.
+                    <span className="absolute top-full right-0 mt-2 w-52 bg-slate-900 text-white text-[11px] leading-snug rounded-lg px-3 py-2 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none shadow-lg z-20">
+                      Using Vikas Kumar&apos;s resume as the default candidate. You can replace it with any text.
                     </span>
                   </span>
+                ) : (
+                  <button
+                    onClick={() => setBullets(DEFAULT_RESUME)}
+                    className="text-[11px] font-medium text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
+                  >
+                    Use Vikas&apos;s resume
+                  </button>
                 )}
-              </label>
+              </div>
               <Textarea
                 placeholder="Paste resume bullet points here, or select a preset above..."
                 value={bullets}
