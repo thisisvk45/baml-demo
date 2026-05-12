@@ -4,7 +4,67 @@ export interface Preset {
   bullets: string;
 }
 
+const VIKAS_RESUME = `Vikas Kumar
++1 336-577-7770 | Kumav25@wfu.edu | https://helloviks.com | github.com/thisisvk45
+
+Education
+MS - Business Analytics (Fully Funded) Wake Forest School of Business 4.0/4.0 Jul 2025 - May 2026
+Bachelor of Technology - Data Science (Fully Funded) Plaksha University, Mohali 8.59/10 Sep 2021 - May 2025
+
+Skills
+- Programming: Python, TypeScript, SQL, Git, REST APIs, Jupyter
+- AI & ML: LLM applications, RAG pipelines, multi-agent systems, transformer fine-tuning (HuggingFace, OpenAI APIs)
+- LLM Engineering: LangChain, LangGraph, LlamaIndex, HuggingFace, Transformers, Prompt Design, Multimodal Systems
+- AI Systems: Knowledge Graphs, Evaluation Frameworks, Hallucination Mitigation, Responsible AI, A/B Testing
+- Infrastructure: AWS (EC2, S3, Lambda), Vercel, Docker, Snowflake, PostgreSQL, MongoDB, Vector Databases
+
+Experience
+Wake Forest University School of Business | AI Engineer Mar 2026 - Present
+- Engineered automated ETL workflows to normalize Handshake API and institutional data into a unified knowledge layer, powering real-time LLM-driven analytics for 40+ academic advisors.
+- Designed and implemented pilot prompt pipelines with structured grounding, achieving a 3x acceleration in query resolution and reducing manual advisor workload during initial deployment.
+- Currently architecting agentic AI workflows using RAG and Azure OpenAI to enable multi-step reasoning over student placement data, with a focus on hallucination mitigation for university-wide production.
+
+Aditya Birla Group | AI/Software Engineer Intern Jan 2025 - Jun 2025
+- Designed clustering models to optimize logistics routes across 6 regional clusters, generating $3.2M in annual cost savings by identifying and eliminating structural inefficiencies across the delivery network.
+- Built predictive models for delivery time estimation and route optimization, achieving a 23% reduction in average delivery time across high-volume distribution corridors using gradient boosting and geospatial features.
+- Built a multi-agent system to automate Neo4j knowledge graph tagging across 500+ entities and 12 semantic dimensions, achieving 96% accuracy and reducing manual effort by 80%.
+
+Lawroom AI | Founding Software Engineer Sep 2024 - Jan 2025
+- Built a multilingual generative AI legal assistant using fine-tuned LegalBERT and transformer models, supporting 10 languages and scaling to serve 2,000+ active users across diverse legal jurisdictions.
+- Designed prompt evaluation pipelines across 1,000+ queries, improving response accuracy by 30% through structured hallucination mitigation and iterative prompt optimization techniques.
+- Developed scalable backend infrastructure using FastAPI and Firebase, handling 3,000+ concurrent user interactions with high availability and low-latency response in production.
+
+Scale AI | AI Trainer (Freelance) Aug 2024 - Dec 2024
+- Designed 500+ adversarial and edge-case prompts to systematically expose LLM failure modes including hallucination, instruction drift, and reasoning breakdown across complex multi-turn workflows.
+- Conducted large-scale red-teaming on 3,000+ responses, evaluating outputs for factual accuracy, logical coherence, and instruction-following, achieving 90%+ agreement with ground-truth labels for RLHF pipelines.
+
+Projects
+OmniPro Support | Next.js 14, Claude Sonnet 4, ElevenLabs Apr 2026 - Present
+- Built end-to-end multimodal AI assistant with 14 production features for Prox Founding Engineer Challenge in one week, including hands-free voice loop, photo diagnosis pipeline, and 9 interactive artifact components.
+- Architected multi-agent deliberation system (Technical Specialist + parallel Safety + Quality reviewers) over 14-tool structured knowledge base, eliminating probabilistic retrieval failures for safety-critical hardware content.
+
+SViam.ai | Next.js, Supabase, OpenRouter, Deepgram, ElevenLabs, Monaco Dec 2025 - Present
+- Building voice-driven AI interviewer with adaptive follow-up questioning, Monaco code editor, and Piston sandboxed execution.
+- Engineered speech pipeline using Deepgram STT and ElevenLabs TTS, achieving end-to-end response under 2 seconds.`;
+
 export const PRESETS: Preset[] = [
+  {
+    label: "AI Engineer (use Vikas's resume)",
+    jd: `AI Engineer - Series B Startup
+
+We are building intelligent automation for enterprise workflows. Looking for an AI engineer who can own the full stack from model integration to production deployment.
+
+Requirements:
+- 2+ years building LLM-powered applications in production
+- Experience with RAG pipelines, vector databases, and retrieval systems
+- Proficiency in Python and TypeScript
+- Hands-on experience with LangChain, LlamaIndex, or similar frameworks
+- Experience with prompt engineering and evaluation frameworks
+- Familiarity with cloud infrastructure (AWS, GCP, or Azure)
+- Experience with knowledge graphs or structured data extraction is a plus
+- Strong software engineering practices (testing, CI/CD, code review)`,
+    bullets: VIKAS_RESUME,
+  },
   {
     label: "Senior Backend Engineer (Fintech)",
     jd: `Senior Backend Engineer - Fintech Startup
@@ -19,13 +79,7 @@ Requirements:
 - Familiarity with event-driven architectures (Kafka, RabbitMQ, or similar)
 - Knowledge of financial regulations (SOX, PCI-DSS) is a strong plus
 - Experience with CI/CD pipelines and infrastructure-as-code`,
-    bullets: `- Built high-throughput payment processing pipeline handling 50k TPS using Go and Kafka
-- Designed and maintained PostgreSQL schemas for transaction ledger serving 10M+ daily queries
-- Led migration from monolith to microservices architecture on AWS ECS, reducing deploy times by 80%
-- Implemented PCI-DSS compliant card tokenization service with end-to-end encryption
-- Managed Terraform-based infrastructure across 3 AWS regions with automated failover
-- 7 years backend engineering experience, 4 years specifically in fintech
-- Set up GitLab CI/CD pipelines with automated testing, security scanning, and canary deployments`,
+    bullets: VIKAS_RESUME,
   },
   {
     label: "ML Engineer (NLP/LLMs)",
@@ -41,35 +95,7 @@ Requirements:
 - Experience with ML infrastructure: model serving, monitoring, A/B testing
 - Strong software engineering fundamentals (version control, testing, code review)
 - Published research or open-source contributions in NLP is a plus`,
-    bullets: `- Fine-tuned LLaMA 2 70B for domain-specific summarization, achieving 15% improvement over base model on internal benchmarks
-- Built production RAG pipeline using Pinecone and LangChain, serving 500+ enterprise users
-- Deployed models on AWS SageMaker with custom inference containers and auto-scaling
-- Implemented evaluation framework for LLM outputs using human preference data and automated metrics
-- Contributed to open-source tokenizer library with 2k+ GitHub stars
-- 4 years ML engineering experience, 2 years focused on NLP/LLM systems
-- Published paper on efficient attention mechanisms at EMNLP 2024`,
-  },
-  {
-    label: "Product Manager (B2B SaaS)",
-    jd: `Senior Product Manager - B2B SaaS Platform
-
-Lead product strategy and execution for our core platform serving mid-market and enterprise customers.
-
-Requirements:
-- 5+ years of product management experience in B2B SaaS
-- Track record of shipping products that drive measurable revenue growth
-- Experience with data-driven decision making and A/B testing
-- Strong technical fluency; ability to work directly with engineering teams
-- Experience with enterprise sales cycles and customer discovery
-- Excellent written and verbal communication
-- MBA or equivalent experience preferred`,
-    bullets: `- Owned product roadmap for $12M ARR analytics platform, growing revenue 40% YoY
-- Led discovery and launch of self-serve onboarding flow, reducing time-to-value from 14 days to 2 days
-- Ran 30+ customer interviews per quarter to validate feature prioritization
-- Defined and tracked product KPIs using Amplitude, with weekly stakeholder reporting
-- Collaborated with 3 engineering squads (12 engineers) using dual-track agile
-- 6 years PM experience across two B2B SaaS companies (Series B and Series D)
-- MBA from Kellogg School of Management`,
+    bullets: VIKAS_RESUME,
   },
   {
     label: "DevOps / Platform Engineer",
@@ -85,16 +111,10 @@ Requirements:
 - Experience with observability stack (Prometheus, Grafana, Datadog, or similar)
 - Familiarity with GitOps workflows (ArgoCD, Flux)
 - On-call experience and incident management background`,
-    bullets: `- Managed 40-node Kubernetes cluster on EKS serving 200+ microservices with 99.95% uptime
-- Built Terraform modules for standardized service deployment, adopted by 8 engineering teams
-- Implemented GitOps workflow using ArgoCD, reducing deployment errors by 60%
-- Designed observability stack with Prometheus, Grafana, and PagerDuty integration
-- Automated incident response runbooks, cutting mean time to resolution from 45 min to 12 min
-- 5 years DevOps experience, previously SRE at a Series C startup
-- On-call rotation lead, managed escalation policies for 50-person engineering org`,
+    bullets: VIKAS_RESUME,
   },
   {
-    label: "Empty inputs (triggers parse failure)",
+    label: "Empty inputs (schema-echo bug)",
     jd: "",
     bullets: "",
   },

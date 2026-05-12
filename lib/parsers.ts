@@ -1,11 +1,13 @@
 // BAML-style SAP (Schema-Aligned Parser): resilient fallback parsing.
 // Pydantic-style: strict JSON.parse, no recovery.
+// Schema aligned with eval: bullet_id, jd_requirement, match_score, justification.
 
 export interface ScreeningResult {
   matches: Array<{
-    requirement: string;
-    evidence: string;
-    score: number;
+    bullet_id: number;
+    jd_requirement: string;
+    match_score: number;
+    justification: string;
   }>;
   coverage_score: number;
   missing_requirements: string[];

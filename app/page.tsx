@@ -76,7 +76,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
               <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
-              Gemini 2.0 Flash via OpenRouter
+              Gemini 2.0 Flash | Demonstrates: markdown-fence handling
             </div>
             <a
               href="https://github.com/thisisvk45/baml-diligence-eval"
@@ -100,7 +100,7 @@ export default function Home() {
           </h1>
           <p className="mt-2 text-slate-500 max-w-xl">
             Same model, same prompt intent, different parsers. See why resilient parsing matters
-            when LLMs wrap valid JSON in markdown fences or schema definitions.
+            when LLMs wrap valid JSON in markdown fences or other formatting.
           </p>
         </div>
 
@@ -193,7 +193,7 @@ export default function Home() {
               </svg>
             </div>
             <p className="text-sm font-medium text-blue-900">Sending to both pipelines in parallel</p>
-            <p className="text-xs text-blue-600 mt-1">BAML (SAP) and Pydantic (strict) will each parse the LLM response independently</p>
+            <p className="text-xs text-blue-600 mt-1">Gemini 2.0 Flash response will be parsed by BAML (SAP) and Pydantic (strict) independently</p>
           </div>
         )}
 
@@ -237,9 +237,9 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>
-                      The LLM returned valid JSON wrapped in markdown fences. BAML&apos;s SAP stripped the
-                      fences and extracted the data. Pydantic&apos;s strict JSON.parse failed because the
-                      raw string is not valid JSON.
+                      Gemini wrapped valid JSON in markdown code fences. BAML&apos;s SAP stripped the fences
+                      and extracted the data successfully. Pydantic&apos;s strict JSON.parse failed because
+                      the raw response string is not valid JSON (it starts with ```json).
                     </span>
                   </div>
                 </div>
@@ -277,8 +277,26 @@ export default function Home() {
         )}
       </main>
 
+      {/* Context section */}
+      <div className="mx-auto max-w-[1280px] px-6 mt-16">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-sm font-semibold text-slate-800 mb-3">Why Gemini instead of Haiku?</h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            When the 1,800-call benchmark ran (May 2026), the dominant failure mode for Claude 3
+            Haiku under naive Pydantic prompts was schema-echo: the model mirrored the $defs and
+            properties JSON Schema wrapper from the prompt back into its response. Recent Haiku
+            versions appear to have patched this behavior. This live demo therefore uses Gemini 2.0
+            Flash to reproduce a different failure mode that BAML&apos;s parser also handles: markdown
+            code-fence wrapping. The underlying point is the same. LLM output reliability depends
+            on a moving target of model-specific quirks, and BAML&apos;s value is handling those quirks
+            consistently. The benchmark data in the eval repo represents the model snapshot at the
+            time of the test.
+          </p>
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="mt-20 border-t border-slate-200/80">
+      <footer className="mt-8 border-t border-slate-200/80">
         <div className="mx-auto max-w-[1280px] px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
           <span>Structured output parsing reliability demo</span>
           <div className="flex items-center gap-4">
