@@ -151,26 +151,15 @@ export default function Home() {
                   </svg>
                   Resume
                 </label>
-                {bullets === DEFAULT_RESUME ? (
-                  <span className="relative group/tip">
-                    <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wide cursor-default">
-                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      Vikas&apos;s Resume
-                    </span>
-                    <span className="absolute top-full right-0 mt-2 w-52 bg-slate-900 text-white text-[11px] leading-snug rounded-lg px-3 py-2 opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none shadow-lg z-20">
-                      Using Vikas Kumar&apos;s resume as the default candidate. You can replace it with any text.
-                    </span>
-                  </span>
-                ) : (
-                  <button
-                    onClick={() => setBullets(DEFAULT_RESUME)}
-                    className="text-[11px] font-medium text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded transition-colors"
-                  >
-                    Use Vikas&apos;s resume
-                  </button>
-                )}
+                <label className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={bullets === DEFAULT_RESUME}
+                    onChange={(e) => setBullets(e.target.checked ? DEFAULT_RESUME : "")}
+                    className="h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500/30"
+                  />
+                  <span className="text-[11px] font-medium text-slate-500">Use Vikas&apos;s resume</span>
+                </label>
               </div>
               <Textarea
                 placeholder="Paste resume bullet points here, or select a preset above..."
